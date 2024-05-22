@@ -1,0 +1,7 @@
+__pycache__/
+data/
+exp_augment/
+exp_ode_method/
+exp_rgb_ode_method/
+*.ipynb
+*.sh

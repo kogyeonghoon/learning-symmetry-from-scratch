@@ -1,0 +1,16 @@
+__pycache__/
+checkpoints/
+data/
+exp_Burgers/
+exp_cKdV/
+exp_fno_Burgers/
+exp_fno_cKdV/
+exp_fno_KdV/
+exp_fno_KS/
+exp_fno_nKdV/
+exp_KdV/
+exp_KS/
+exp_nKdV/
+past_runs/
+*.ipynb
+*.sh
