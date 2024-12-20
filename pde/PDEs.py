@@ -31,7 +31,10 @@ class ComputePSDiff():
             k[self.N//2] = 0
             
         coeff_shape = [1 if i!=dim else -1 for i in range(len(u.shape))]
-        coeff = torch.pow(2j *torch.pi * k/ self.L, order).view(coeff_shape)
+        coeff = torch.pow(2j *torch.pi * k/ self.L, order)
+        coeff[0] = 0
+        coeff[self.N//2] = 0
+        coeff = coeff.view(coeff_shape)
         f = torch.fft.fft(u,dim=dim)
         df = f * coeff
         du = torch.fft.ifft(df,dim=dim)

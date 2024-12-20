@@ -14,3 +14,4 @@ exp_nKdV/
 past_runs/
 *.ipynb
 *.sh
+*.out

@@ -172,7 +172,7 @@ def generate_trajectories(pde: PDE,
 
                     # We use the initial condition of Burgers' equation and inverse Cole-Hopf transform it into the Heat equation
                     if pde_string == 'Burgers':
-                        u0 = inv_cole_hopf(u0)
+                        u0 = inv_cole_hopf(u0/10,pde)
 
                     u0_list.append(u0)
                     

@@ -22,6 +22,9 @@ from torch.utils.data import Dataset
 from fno import FNO1d
 from PDEs import PDE
 
+def default_experiment_name():
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")  # Format: YYYYMMDDHHMMSS
+    return f"exp{timestamp}"
 
 class HDF5Dataset(Dataset):
     """
@@ -200,12 +203,10 @@ class SobolevLoss():
 # experiment
 
 def init_path(experiment_name,exp_name,args,subdirs=[]):
-    if not os.path.exists(experiment_name):
-        os.mkdir(experiment_name)
+    os.makedirs(experiment_name,exist_ok = True)
     
     exp_path = os.path.join(experiment_name,exp_name)
-    if not os.path.exists(exp_path):
-        os.mkdir(exp_path)
+    os.makedirs(exp_path,exist_ok = True)
 
     outfile = os.path.join(exp_path,'log.txt')
     with open(outfile,'w') as f:
@@ -215,8 +216,7 @@ def init_path(experiment_name,exp_name,args,subdirs=[]):
 
     for subdir in subdirs:
         subdir_path=  os.path.join(exp_path,subdir)
-        if not os.path.exists(subdir_path):
-            os.mkdir(subdir_path)
+        os.makedirs(subdir_path,exist_ok = True)
 
     return exp_path, outfile
 

@@ -219,7 +219,7 @@ def test(args: argparse,
 
    # Check the losses for different timesteps (one forward prediction step)
     losses = test_timestep_losses(model=model,
-                                  batch_size=args.batch_size,
+                                  batch_size=args.test_batch_size,
                                   loader=loader,
                                   data_creator=data_creator,
                                   criterion=criterion,
@@ -228,7 +228,7 @@ def test(args: argparse,
 
     # Test the unrolled losses (full trajectory)
     losses, nlosses = test_unrolled_losses(model=model,
-                                           batch_size=args.batch_size,
+                                           batch_size=args.test_batch_size,
                                            loader=loader,
                                            data_creator=data_creator,
                                            criterion=criterion,

@@ -3,6 +3,7 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from datetime import datetime
 
 import os
 import math
@@ -13,6 +14,9 @@ import pandas as pd
         
 from tqdm import tqdm
 
+def default_experiment_name():
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")  # Format: YYYYMMDDHHMMSS
+    return f"exp{timestamp}"
 
 def grid_sample(image, optical):
     # an on-scratch implementation of torch.nn.functional.grid_sample
@@ -129,6 +133,34 @@ def plot_delta_instance(delta,coords):
     delta_x = delta[:,0]
     delta_y = delta[:,1]
     plt.quiver(coords_x,coords_y,delta_x,delta_y,)
+
+# experiment
+
+def init_path(experiment_name,exp_name,args,subdirs=[]):
+    os.makedirs(experiment_name,exist_ok = True)
+    
+    exp_path = os.path.join(experiment_name,exp_name)
+    os.makedirs(exp_path,exist_ok = True)
+
+    outfile = os.path.join(exp_path,'log.txt')
+    with open(outfile,'w') as f:
+        f.write(f'Experiment {exp_name}'+'\n')
+    with open(os.path.join(exp_path,'args.yaml'),'w') as f:
+        yaml.dump(vars(args),f)
+
+    for subdir in subdirs:
+        subdir_path=  os.path.join(exp_path,subdir)
+        os.makedirs(subdir_path,exist_ok = True)
+
+    return exp_path, outfile
+
+class Writer():
+    def __init__(self,outfile):
+        self.outfile = outfile
+    def __call__(self,outstr):
+        with open(self.outfile,'a') as f:
+            f.write(outstr +'\n')
+        print(outstr)
 
 
 class MetricTracker():
