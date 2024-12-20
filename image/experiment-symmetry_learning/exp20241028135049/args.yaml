@@ -1,0 +1,13 @@
+batch_size: 128
+device: cuda
+epochs: 50
+exp_name: exp20241028135049
+lipschitz_weight: 10.0
+lr: 0.0001
+n_delta: 10
+ortho_loss_final: arccos
+ortho_weight: 10.0
+resnet_path: experiment-resnet_training/benchmark/model.pt
+sigma: 0.4
+tau: 0.5
+test_mode: false
