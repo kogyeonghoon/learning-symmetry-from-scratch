@@ -3,7 +3,7 @@ data/
 exp_augment/
 exp_ode_method/
 exp_rgb_ode_method/
-experiment-resnet-training/
-experiment-symmetry-learning/
+experiment-resnet_training/
+experiment-symmetry_learning/
 *.ipynb
 *.sh
