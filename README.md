@@ -1,7 +1,7 @@
 # Learning Infinitesimal Generators of Continuous Symmetries from Data
 
 This repository contains the official Python implementation of the algorithm described in the paper:  
-> **"Learning Infinitesimal Generators of Continuous Symmetries from Data"**  
+> **["Learning Infinitesimal Generators of Continuous Symmetries from Data"](https://arxiv.org/abs/2410.21853)**  
 > *Gyeonghoon Ko, Hyunsu Kim, Juho Lee*  
 > Presented at NeurIPS 2024.  
 
@@ -21,28 +21,32 @@ Key features of the algorithm include:
 The method is demonstrated on tasks involving image data and partial differential equations (PDEs), showcasing its ability to extract symmetries that enhance downstream tasks such as data augmentation and neural operator learning.
 
 For further details, refer to the full paper:  [Learning Infinitesimal Generators of Continuous Symmetries from Data](https://arxiv.org/abs/2410.21853).
+
 ---
 
 ## Installation
 
-1. **Clone the repository**:
+1. Clone the repository.
+
+2. Create and activate the virtual environment.
+
+3. Install dependencies.
+
    ```bash
    git clone https://github.com/kogyeonghoon/learning-symmetry-from-scratch.git
    cd learning-symmetry-from-scratch
 
-2. **Create and activate the virtual environment**:
-    '''bash
-    conda create --name learning_symmetry python=3.10 -y
-    conda activate learning_symmetry
+   conda create --name learning_symmetry python=3.10 -y
+   conda activate learning_symmetry
 
-3. **Install dependencies**:
-    '''bash
-    pip install -r requirements.txt
+   pip install -r requirements.txt
+   ```
 
 ## Citation
 
 If you find our work and/or our code useful, please cite us via:
 
+```bibtex
 @article{ko2024learning,
   title     = {Learning Infinitesimal Generators of Continuous Symmetries from Data},
   author    = {Gyeonghoon Ko and Hyunsu Kim and Juho Lee},
@@ -50,3 +54,4 @@ If you find our work and/or our code useful, please cite us via:
   year      = {2024},
   url       = {https://github.com/kogyeonghoon/learning-symmetry-from-scratch.git}
 }
+```
