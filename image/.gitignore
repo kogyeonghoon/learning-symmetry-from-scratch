@@ -5,5 +5,4 @@ exp_ode_method/
 exp_rgb_ode_method/
 experiment-resnet_training/
 experiment-symmetry_learning/
-*.ipynb
 *.sh

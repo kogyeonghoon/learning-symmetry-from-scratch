@@ -180,7 +180,8 @@ def main():
 
     img_size = 32
     coords_weight = compute_coords_weight(img_size, train_loader.dataset, model, device=device, n_iter=20, test_mode=args.test_mode)
-
+    torch.save(coords_weight, os.path.join(exp_path, 'coords_weight.pt'))
+    
     vfop = VectorFieldOperation(img_size, coords_weight, device=device)
     coords = vfop.coords
 

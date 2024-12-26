@@ -213,7 +213,7 @@ def train_loop(args, train_loader, delta_model, optimizer, scheduler, pde, devic
             min_loss = epoch_metrics['loss']
             model_save_path = os.path.join(exp_path, 'deltamodel.pt')
             torch.save(delta_model.state_dict(), model_save_path)
-        torch.save(delta_model.state_dict(), os.path.join(exp_path,'checkpoints' f'epoch{epoch}.pt'))
+        torch.save(delta_model.state_dict(), os.path.join(exp_path,'checkpoints', f'epoch{epoch}.pt'))
         # Update scheduler
         scheduler.step()
 
